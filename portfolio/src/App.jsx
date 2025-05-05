@@ -5,10 +5,13 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Footer from './components/Footer';
+import DarkModeToggle from './components/DarkModeToggle';
 
 export default function App() {
   return (
+    <div className="app-grid">
     <Router>
+      <DarkModeToggle />
       <Navbar />
       <main style={{ padding: "40px" }}>
         <Routes>
@@ -20,5 +23,6 @@ export default function App() {
       </main>
       <Footer />
     </Router>
+    </div>
   );
 }
