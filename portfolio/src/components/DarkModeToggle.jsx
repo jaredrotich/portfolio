@@ -23,7 +23,7 @@ const DarkModeToggle = () => {
           checked={darkMode}
           onChange={() => setDarkMode(!darkMode)}
         />
-        {' '}🌙 Toggle Dark Mode
+        {' '} Toggle Dark Mode
       </label>
     </div>
   );
