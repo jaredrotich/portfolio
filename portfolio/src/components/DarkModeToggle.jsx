@@ -1,31 +1,34 @@
+
 import React, { useEffect, useState } from 'react';
 
 const DarkModeToggle = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
-  });
+  const [isDark, setIsDark] = useState(() =>
+    document.body.classList.contains('dark')
+  );
 
   useEffect(() => {
-    if (darkMode) {
+    if (isDark) {
       document.body.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
     } else {
       document.body.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
     }
-  }, [darkMode]);
+  }, [isDark]);
 
   return (
-    <div style={{ textAlign: 'right', padding: '1rem' }}>
-      <label style={{ cursor: 'pointer' }}>
-        <input
-          type="checkbox"
-          checked={darkMode}
-          onChange={() => setDarkMode(!darkMode)}
-        />
-        {' '} Toggle Dark Mode
-      </label>
-    </div>
+    <button
+      onClick={() => setIsDark(!isDark)}
+      style={{
+        background: isDark ? '#333' : '#ddd',
+        color: isDark ? '#fff' : '#000',
+        border: 'none',
+        borderRadius: '20px',
+        padding: '0.5rem 1rem',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+      }}
+    >
+      {isDark ? '🌙 Dark' : '☀️ Light'}
+    </button>
   );
 };
 

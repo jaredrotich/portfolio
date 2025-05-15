@@ -1,111 +1,76 @@
+
 :root {
-  --bg-color: #f5f5f5;
-  --text-color: #111;
-  --primary: blue;
-  --accent: red;
+  --color-bg-light: #f5f8fa;
+  --color-bg-dark: #10141c;
+  --color-text-light: #111;
+  --color-text-dark: #f4f4f4;
+  --accent-color: #ff6f61;
+
+  --navbar-bg: #fff;
+  --navbar-text: #222;
+  --btn-bg: #4e9af1;
+  --btn-text: #fff;
+  --btn-hover-bg: #1e3a8a;
+  --btn-hover-text: #fff;
 }
 
-/* App Grid Layout */
-.app-grid {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+body {
+  margin: 0;
+  padding: 0;
   font-family: 'Segoe UI', sans-serif;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Navbar */
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: var(--bg-color);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+body.dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+  --navbar-bg: #1c1f26;
+  --navbar-text: #eee;
+  --btn-bg: #ff6f61;
+  --btn-text: #fff;
+  --btn-hover-bg: #f97316;
+  --btn-hover-text: #fff;
 }
 
-nav h2 {
-  margin-right: auto;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding-left: 1rem;
-}
-
-/* Nav Links */
-.nav-link {
-  padding: 0.5rem 1rem;
-  background-color: var(--primary);
-  color: white;
-  border-radius: 4px;
+a {
+  color: var(--accent-color);
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: background 0.3s ease;
 }
 
-.nav-link:hover {
-  background-color: darkblue;
+a:hover {
+  color: var(--btn-hover-bg);
 }
 
-.nav-link.active {
-  background-color: var(--accent);
-}
-
-/* Main Content */
-main {
-  display: grid;
-  place-items: center;
-  padding: 2rem;
-  text-align: center;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 0.85rem;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* Social Links Inside Footer (optional) */
-footer .social-links {
+.app-container {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
 }
 
-footer .social-links a {
-  color: #007bff;
-  font-size: 1.4rem;
-  transition: transform 0.2s ease;
+.dark-toggle-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
 }
 
-footer .social-links a:hover {
-  transform: scale(1.2);
+.main-content {
+  flex: 1;
+  padding: 1rem 2rem;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+footer {
+  background-color: #eaeaea;
+  color: #555;
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto;
+}
 
-  nav h2 {
-    padding-left: 0;
-    margin-bottom: 0.5rem;
-  }
-
-  .nav-link {
-    width: 100%;
-    text-align: left;
-  }
-
-  main {
-    padding: 1rem;
-  }
+body.dark footer {
+  background-color: #1e1e1e;
+  color: #ccc;
 }

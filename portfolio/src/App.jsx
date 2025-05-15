@@ -1,19 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
+
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import DarkModeToggle from './components/DarkModeToggle';
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
+import './styles/global.css';
 
-export default function App() {
+const App = () => {
   return (
-    <div className="app-grid">
-    <Router>
-      <DarkModeToggle />
+    <div className="app-container">
+      <div className="dark-toggle-container">
+        <DarkModeToggle />
+      </div>
       <Navbar />
-      <main style={{ padding: "40px" }}>
+      <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -22,7 +26,8 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-    </Router>
     </div>
   );
-}
+};
+
+export default App;
