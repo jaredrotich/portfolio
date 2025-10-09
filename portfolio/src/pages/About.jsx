@@ -1,32 +1,47 @@
+import React from "react";
+import "./About.css";
 
 export default function About() {
-    return (
-      <main>
-        <h1>I Am Kipyegon Jared ~Code Warrior~</h1>
-        <p>I'm a passionate Code Crafter...
-           — a Fullstack Developer with a sharp eye for clean, scalable, and secure code.
+  return (
+    <main className="about-container">
+      {/* Left side - Profile photo */}
+      <div className="about-left">
+        <div className="profile-pic">
+          <img
+            src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_original/v1/attachments/profile/photo/e77ccd145b5cdd3d193d5014c62fa346-1695900561739803251062/JPEG_20250217_174048_2814337677049511668.jpg"
+            alt="Kipyegon Jared"
+          />
+        </div>
+      </div>
 
-💻 I specialize in building robust fullstack applications using:
-- **Frontend**: React.js, HTML/CSS, Tailwind, Bootstrap
-- **Backend**: Python (Flask, Django), Node.js, SQL/SQLite, REST APIs
-- **Other tools**: CLI apps, Git, Linux, VS Code, Postman, ORM (SQLAlchemy), Alembic, JWT/Auth
+      {/* Right side - About content */}
+      <div className="about-right">
+        <div className="about-content">
+          <h2 className="section-title">About Me</h2>
+          <h1 className="name-title">Kipyegon Jared</h1>
 
-🛠️ My development style is hands-on, practical, and focused on real-world problem solving. Whether it's:
-- A modern e-commerce site
-- A custom API system
-- A secure CLI-based encryption/decryption tool
-- Or a full SaaS dashboard with authentication and email notifications
+          <p>
+            Hello! I'm <strong>Kipyegon Jared</strong> — a{" "}
+            <strong>Full-Stack Web Developer</strong> and{" "}
+            <strong>IT Professional</strong> passionate about building functional and visually
+            appealing web applications. I specialize in integrating modern web technologies to
+            create data-driven solutions.
+          </p>
 
-...I deliver clean, working software that gets the job done. No fluff. Just solid, working code.
+          <p>
+            Proficient in <strong>JavaScript</strong> (React.js, Angular),{" "}
+            <strong>Python</strong> (Flask), <strong>SQL</strong>, and cloud technologies. I also
+            work with modern frameworks and follow development best practices to ensure clean,
+            scalable, and secure code.
+          </p>
 
-🔐 Security-aware: I understand the difference between hashing and encryption. I’ve built secure password systems using `bcrypt` and `cryptography.fernet`, and I always follow best practices when storing sensitive data.
-
-🚀 I'm all about improving, shipping, and leveling up every project I touch. Whether it’s from a blank terminal or a full design spec — I bring the code to life.
-
-📩 Let's build something great — one solid line of code at a time.
-
-        </p>
-      </main>
-    );
-  }
-  
+          <p>
+            I'm a certified <strong>IBM Cloud Practitioner</strong> and currently open to exciting
+            new opportunities. If you’re looking for someone who can craft elegant code and deliver
+            practical solutions — I’m your guy. 🚀
+          </p>
+        </div>
+      </div>
+    </main>
+  );
+}

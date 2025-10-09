@@ -10,7 +10,7 @@ const Navbar = () => {
       <h2 className="navbar-logo">Code Warrior ⚔️</h2>
       <div className="nav-links">
         <NavLink to="/" className="modern-button outline">
-          Home
+          Skills& Technologies
         </NavLink>
         <NavLink to="/about" className="modern-button outline">
           About
