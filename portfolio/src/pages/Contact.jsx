@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SocialLinks from "../components/SocialLinks";
+import "./Contact.css";
 
 function Contact() {
   const [formData, setFormData] = useState({

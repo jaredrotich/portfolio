@@ -1,51 +1,73 @@
-.home {
-  background: #111;
-  color: #eee;
-  min-height: 100vh;
-  padding: 40px;
-  font-family: Arial, sans-serif;
+.skills-container {
+  background: #0d1117; /* Default dark mode */
+  color: #f0f6fc;
+  border-radius: 40px;
+  padding: 3rem 2rem;
+  width: 95%;
+  max-width: 1300px;
+  margin: 2rem auto;
+  box-shadow: 0 0 25px rgba(47, 129, 247, 0.15);
+  position: relative;
+  overflow: hidden;
 }
 
-.home h1 {
-  font-size: 2.5rem;
-  color: #9f7aea;
+/* Shiny edge glow */
+.skills-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  padding: 3px;
+  background: linear-gradient(135deg, #2f81f7, #58a6ff, #79c0ff);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
 }
 
-.home p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: #bbb;
+.skills-header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-.skills-title {
-  font-size: 1.8rem;
-  color: #b794f4;
-  margin-bottom: 20px;
+.skills-header h1 {
+  font-size: 2.2rem;
+  color: #79c0ff;
+  margin-bottom: 0.5rem;
 }
 
+.skills-header p {
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+/* Skills grid layout */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
 }
 
+/* Individual skill card */
 .card {
-  background: #1f1f1f;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(159, 122, 234, 0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(47, 129, 247, 0.2);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(159, 122, 234, 0.6);
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(47, 129, 247, 0.45);
 }
 
 .card h3 {
   font-size: 1.3rem;
   margin-bottom: 15px;
-  color: #d6bcfa;
+  color: #58a6ff;
 }
 
 .card ul {
@@ -58,7 +80,8 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  color: #ccc;
+  color: #c9d1d9;
+  font-size: 1rem;
 }
 
 .card li img {
@@ -66,4 +89,19 @@
   height: 22px;
   margin-right: 10px;
   border-radius: 4px;
+  background: #161b22;
+  padding: 2px;
+  box-shadow: 0 0 5px rgba(88, 166, 255, 0.3);
+}
+
+/* Responsive optimization */
+@media (max-width: 768px) {
+  .skills-container {
+    padding: 2rem 1rem;
+    border-radius: 30px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }

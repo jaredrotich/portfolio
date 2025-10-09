@@ -7,7 +7,7 @@ import '../styles/ButtonStyles.css';
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h2 className="navbar-logo">Code Warrior ⚔️</h2>
+      <h2 className="navbar-logo">Jared  KR ⚔️</h2>
       <div className="nav-links">
         <NavLink to="/" className="modern-button outline">
           Skills& Technologies
