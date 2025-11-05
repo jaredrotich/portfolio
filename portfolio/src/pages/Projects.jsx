@@ -27,7 +27,7 @@ const projectData = [
   {
     name: "Expense Tracker",
     description: "A secure app that allows clients to account for their expenses easily.",
-    url: "https://react-code-challenge-1-4nco-git-main-jared-rotichs-projects.vercel.app/",
+    url: "https://react-code-challenge-1-mu.vercel.app/",
     image: "/assets/expense-tracker.png",
     technologies: ["React", "CSS", "JavaScript"],
     iframe: false,
@@ -135,7 +135,7 @@ export default function Projects() {
                 }}
                 whileTap={{ scale: 0.9 }}
               >
-                🔍
+                Visit Project
               </motion.a>
             </motion.div>
           </motion.div>
