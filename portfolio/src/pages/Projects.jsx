@@ -12,7 +12,8 @@ const projectData = [
   },
   {
     name: "AI Analyser",
-    description: "An AI-powered Jackpot Predictor that processes initial and updated odds to forecast outcomes.",
+    description:
+      "An AI-powered Jackpot Predictor that processes initial and updated odds to forecast outcomes.",
     url: "https://analysis-cli-engine.vercel.app/",
     technologies: ["React", "Python", "Flask"],
     iframe: true,
@@ -26,7 +27,8 @@ const projectData = [
   },
   {
     name: "Expense Tracker",
-    description: "A secure app that allows clients to account for their expenses easily.",
+    description:
+      "A secure app that allows clients to account for their expenses easily.",
     url: "https://react-code-challenge-1-mu.vercel.app/",
     image: "/assets/expense-tracker.png",
     technologies: ["React", "CSS", "JavaScript"],
@@ -34,7 +36,8 @@ const projectData = [
   },
   {
     name: "Event Planner",
-    description: "A clean app to plan, organize, and manage events with ease.",
+    description:
+      "A clean app to plan, organize, and manage events with ease.",
     url: "https://event-planner-app-rpaz.vercel.app/",
     technologies: ["React", "CSS", "Node.js"],
     iframe: true,
@@ -76,6 +79,9 @@ export default function Projects() {
                 title={project.name}
                 className="project-iframe"
                 loading="lazy"
+                style={{
+                  pointerEvents: "none",
+                }}
               ></iframe>
             ) : (
               <img
@@ -87,15 +93,15 @@ export default function Projects() {
 
             <motion.div
               className="circular-bundle"
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
               <motion.h2
                 initial={{ y: -10, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.2 }}
               >
                 {project.name}
               </motion.h2>
@@ -103,7 +109,7 @@ export default function Projects() {
               <motion.p
                 initial={{ y: 10, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.3 }}
               >
                 {project.description}
               </motion.p>
@@ -113,10 +119,9 @@ export default function Projects() {
                   <motion.span
                     key={i}
                     className="tech-tag"
-                    whileHover={{ scale: 1.15 }}
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.5 + i * 0.1 }}
+                    transition={{ delay: 0.4 + i * 0.1 }}
                   >
                     {tech}
                   </motion.span>
@@ -128,12 +133,7 @@ export default function Projects() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-btn"
-                whileHover={{
-                  scale: 1.15,
-                  rotate: 8,
-                  backgroundColor: "#1f6feb",
-                }}
-                whileTap={{ scale: 0.9 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Visit Project
               </motion.a>

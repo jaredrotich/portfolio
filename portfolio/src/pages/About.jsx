@@ -4,17 +4,16 @@ import "./About.css";
 export default function About() {
   return (
     <main className="about-container">
-      {/* Left side - Profile photo */}
       <div className="about-left">
         <div className="profile-pic">
           <img
-            src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_original/v1/attachments/profile/photo/e77ccd145b5cdd3d193d5014c62fa346-1695900561739803251062/JPEG_20250217_174048_2814337677049511668.jpg"
+            src="https://media.licdn.com/dms/image/v2/D4D03AQHC_C8dIT8tRA/profile-displayphoto-scale_400_400/B4DZqMdRpwKQAA-/0/1763293079354?e=1781136000&v=beta&t=xMghlKai2cXaBTjAPAOwtwjrZeNhOyPRie_UHPScEoc"
             alt="Kipyegon Jared"
           />
         </div>
       </div>
 
-      {/* Right side - About content */}
+     
       <div className="about-right">
         <div className="about-content">
           <h2 className="section-title">About Me</h2>

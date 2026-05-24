@@ -1,10 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 
 const DarkModeToggle = () => {
-  const [isDark, setIsDark] = useState(() =>
-    document.body.classList.contains('dark')
-  );
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     if (isDark) {

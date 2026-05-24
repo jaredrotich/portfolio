@@ -11,10 +11,10 @@ function Contact() {
     message: ""
   });
 
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [status, setStatus] = useState("idle"); 
   const [errorMsg, setErrorMsg] = useState("");
 
-  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4000";
+ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -50,7 +50,7 @@ function Contact() {
 
   return (
     <main className="contact-container">
-      {/* Left side - details */}
+      
       <div className="contact-left">
         <h2>Contact Me</h2>
         <p>Email: <a href="mailto:jaredrotich3@gmail.com">jaredrotich3@gmail.com</a></p>
@@ -59,7 +59,7 @@ function Contact() {
         <SocialLinks />
       </div>
 
-      {/* Right side - form */}
+      
       <div className="contact-right">
         <h3>Send Me a Message</h3>
 
