@@ -100,7 +100,6 @@ app.post("/api/contact", async (req, res) => {
 });
 
 
-  //  SERVER START
 
 
 app.listen(PORT, () => {
