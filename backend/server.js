@@ -12,21 +12,34 @@ app.use(cors());
 app.use(express.json());
 
 
-  //  NODEMAILER TRANSPORTER
+// ROOT ROUTE
+
+app.get("/", (req, res) => {
+  res.send("Portfolio backend running ✅");
+});
+
+
+// NODEMAILER TRANSPORTER
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
+
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
 });
 
 
-  //  VERIFY CONNECTION
+// VERIFY SMTP CONNECTION
 
-
-transporter.verify((error, success) => {
+transporter.verify((error) => {
   if (error) {
     console.log("SMTP Error:", error);
   } else {
@@ -35,10 +48,11 @@ transporter.verify((error, success) => {
 });
 
 
-  //  CONTACT ROUTE
-
+// CONTACT ROUTE
 
 app.post("/api/contact", async (req, res) => {
+  console.log("Incoming request:", req.body);
+
   const { name, email, phone, subject, message } = req.body;
 
   if (!name || !email || !subject || !message) {
@@ -83,14 +97,18 @@ app.post("/api/contact", async (req, res) => {
       `,
     };
 
+    // SEND EMAIL
     await transporter.sendMail(mailOptions);
+
+    console.log("Email sent successfully ✅");
 
     res.status(200).json({
       success: true,
       message: "Message sent successfully ✅",
     });
+
   } catch (error) {
-    console.error(error);
+    console.error("Mail Error:", error);
 
     res.status(500).json({
       success: false,
@@ -100,7 +118,7 @@ app.post("/api/contact", async (req, res) => {
 });
 
 
-
+// START SERVER
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
