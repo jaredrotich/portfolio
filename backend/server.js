@@ -11,21 +11,12 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-
-// ROOT ROUTE
-
-app.get("/", (req, res) => {
-  res.send("Portfolio backend running ✅");
-});
-
-
-// NODEMAILER TRANSPORTER
+/* =========================
+   NODEMAILER TRANSPORTER
+========================= */
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-
+  service: "gmail",
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -36,8 +27,9 @@ const transporter = nodemailer.createTransport({
   socketTimeout: 10000,
 });
 
-
-// VERIFY SMTP CONNECTION
+/* =========================
+   VERIFY SMTP
+========================= */
 
 transporter.verify((error) => {
   if (error) {
@@ -47,12 +39,11 @@ transporter.verify((error) => {
   }
 });
 
-
-// CONTACT ROUTE
+/* =========================
+   CONTACT ROUTE
+========================= */
 
 app.post("/api/contact", async (req, res) => {
-  console.log("Incoming request:", req.body);
-
   const { name, email, phone, subject, message } = req.body;
 
   if (!name || !email || !subject || !message) {
@@ -65,11 +56,8 @@ app.post("/api/contact", async (req, res) => {
   try {
     const mailOptions = {
       from: process.env.SMTP_USER,
-
       to: process.env.RECEIVER_EMAIL,
-
       replyTo: email,
-
       subject: `Portfolio Contact: ${subject}`,
 
       html: `
@@ -77,11 +65,8 @@ app.post("/api/contact", async (req, res) => {
           <h2>New Portfolio Message 🚀</h2>
 
           <p><strong>Name:</strong> ${name}</p>
-
           <p><strong>Email:</strong> ${email}</p>
-
           <p><strong>Phone:</strong> ${phone || "N/A"}</p>
-
           <p><strong>Subject:</strong> ${subject}</p>
 
           <p><strong>Message:</strong></p>
@@ -97,10 +82,7 @@ app.post("/api/contact", async (req, res) => {
       `,
     };
 
-    // SEND EMAIL
     await transporter.sendMail(mailOptions);
-
-    console.log("Email sent successfully ✅");
 
     res.status(200).json({
       success: true,
@@ -108,7 +90,7 @@ app.post("/api/contact", async (req, res) => {
     });
 
   } catch (error) {
-    console.error("Mail Error:", error);
+    console.error("MAIL ERROR:", error);
 
     res.status(500).json({
       success: false,
@@ -118,7 +100,7 @@ app.post("/api/contact", async (req, res) => {
 });
 
 
-// START SERVER
+  //  START SERVER
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
